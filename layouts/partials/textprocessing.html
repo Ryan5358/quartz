@@ -147,6 +147,7 @@
     {{ end }}
     {{ $counter = add $counter 1 }}
   {{end}}
+  {{ printf "%s" $content }}
   {{ $content = $content | replaceRE `\[![a-zA-Z]+\][-\+]?` "" }}
   {{ $content = $content | replaceRE "blockquote class=callout" "blockquote" }}
   {{ $content = $content | replaceRE `(?s)(<blockquote class="\S+-callout">.*?)<br>(.*?<\/blockquote)` `${1}</p><p>${2}` }}
