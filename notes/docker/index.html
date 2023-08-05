@@ -9,7 +9,7 @@
 <script defer src=https://ryan5358.github.io/quartz/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js></script>
 <script defer src=https://ryan5358.github.io/quartz/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js></script>
 <script defer src=https://ryan5358.github.io/quartz/js/callouts.8b3be36e209ec910e6f7cb3d414b0b33.min.js></script>
-<script>const SEARCH_ENABLED=!1,LATEX_ENABLED=!0,PRODUCTION=!0,BASE_URL="https://ryan5358.github.io/quartz/",fetchData=Promise.all([fetch("https://ryan5358.github.io/quartz/indices/linkIndex.ee9d154f7b958862b42d9147b1373a58.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("https://ryan5358.github.io/quartz/indices/contentIndex.f96deaec219751bbf145b45714918359.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n})),render=()=>{const e=new URL(BASE_URL),t=e.pathname,n=window.location.pathname,s=t==n;addCopyButtons(),addTitleToCodeBlocks(),addCollapsibleCallouts(),initPopover("https://ryan5358.github.io/quartz",!0);const o=document.getElementById("footer");if(o){const e=document.getElementById("graph-container");if(!e)return requestAnimationFrame(render);e.textContent="";const t=s&&!1;drawGraph("https://ryan5358.github.io/quartz",t,[{"/moc":"#4388cc"}],t?{centerForce:1,depth:-1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.5,linkDistance:1,opacityScale:3,repelForce:1,scale:1.4}:{centerForce:1,depth:1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.6,linkDistance:1,opacityScale:3,repelForce:2,scale:1.2})}var i=document.getElementsByClassName("mermaid");i.length>0&&import("https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs").then(e=>{e.default.init()});function a(n){const e=n.target,t=e.className.split(" "),s=t.includes("broken"),o=t.includes("internal-link");plausible("Link Click",{props:{href:e.href,broken:s,internal:o,graph:!1}})}const r=document.querySelectorAll("a");for(link of r)link.className.includes("root-title")&&link.addEventListener("click",a,{once:!0})},init=(e=document)=>{addCopyButtons(),addTitleToCodeBlocks(),renderMathInElement(e.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{'’':"'"},throwOnError:!1})}</script><script type=module>
+<script>const SEARCH_ENABLED=!1,LATEX_ENABLED=!0,PRODUCTION=!0,BASE_URL="https://ryan5358.github.io/quartz/",fetchData=Promise.all([fetch("https://ryan5358.github.io/quartz/indices/linkIndex.ee9d154f7b958862b42d9147b1373a58.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("https://ryan5358.github.io/quartz/indices/contentIndex.54769060024895ceb10f8807d25d0ea4.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n})),render=()=>{const e=new URL(BASE_URL),t=e.pathname,n=window.location.pathname,s=t==n;addCopyButtons(),addTitleToCodeBlocks(),addCollapsibleCallouts(),initPopover("https://ryan5358.github.io/quartz",!0);const o=document.getElementById("footer");if(o){const e=document.getElementById("graph-container");if(!e)return requestAnimationFrame(render);e.textContent="";const t=s&&!1;drawGraph("https://ryan5358.github.io/quartz",t,[{"/moc":"#4388cc"}],t?{centerForce:1,depth:-1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.5,linkDistance:1,opacityScale:3,repelForce:1,scale:1.4}:{centerForce:1,depth:1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.6,linkDistance:1,opacityScale:3,repelForce:2,scale:1.2})}var i=document.getElementsByClassName("mermaid");i.length>0&&import("https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs").then(e=>{e.default.init()});function a(n){const e=n.target,t=e.className.split(" "),s=t.includes("broken"),o=t.includes("internal-link");plausible("Link Click",{props:{href:e.href,broken:s,internal:o,graph:!1}})}const r=document.querySelectorAll("a");for(link of r)link.className.includes("root-title")&&link.addEventListener("click",a,{once:!0})},init=(e=document)=>{addCopyButtons(),addTitleToCodeBlocks(),renderMathInElement(e.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{'’':"'"},throwOnError:!1})}</script><script type=module>
     import { attachSPARouting } from "https:\/\/ryan5358.github.io\/quartz\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
     attachSPARouting(init, render)
   </script><script defer data-domain=ryan5358.github.io/quartz src=https://plausible.io/js/script.js></script>
@@ -26,7 +26,7 @@ data-src="/quartz/notes/preview-changes/">install Quartz&amp;rsquo;s dependencie
 &lt;a href="#hosting-quartz-locally">&lt;h2 id="hosting-quartz-locally">&lt;span class="hanchor" ariaLabel="Anchor"># &lt;/span>Hosting Quartz Locally&lt;/h2>&lt;/a>
 &lt;p>You can serve Quartz locally at &lt;code>http://localhost:1313&lt;/code> with the following script, replacing &lt;code>/path/to/quartz&lt;/code> with the
 actual path to your Quartz folder.&lt;/p>
-&lt;p>{{ trim \"docker-compose.yml\" }}&lt;/p>
+&lt;p>docker-compose.yml&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -65,8 +65,8 @@ actual path to your Quartz folder.&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - HUGO_LIVERELOADPORT=-1
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>{{ trim \"Then run with: &lt;code>docker-compose up -d&lt;/code> in the same directory as your &lt;code>docker-compose.yml&lt;/code> file.\" }}&lt;/p>
-&lt;p>{{ trim \"While the container is running, you can update the &lt;code>quartz&lt;/code> fork with: &lt;code>docker exec -it quartz-hugo make update&lt;/code>.\" }}&lt;/p>
+&lt;/div>&lt;p>Then run with: &lt;code>docker-compose up -d&lt;/code> in the same directory as your &lt;code>docker-compose.yml&lt;/code> file.&lt;/p>
+&lt;p>While the container is running, you can update the &lt;code>quartz&lt;/code> fork with: &lt;code>docker exec -it quartz-hugo make update&lt;/code>.&lt;/p>
 &lt;a href="#exposing-your-container-to-the-internet">&lt;h2 id="exposing-your-container-to-the-internet">&lt;span class="hanchor" ariaLabel="Anchor"># &lt;/span>Exposing Your Container to the Internet&lt;/h2>&lt;/a>
 &lt;a href="#to-your-public-ip-address-with-port-forwarding-insecure">&lt;h3 id="to-your-public-ip-address-with-port-forwarding-insecure">&lt;span class="hanchor" ariaLabel="Anchor"># &lt;/span>To Your Public IP Address with Port Forwarding (insecure)&lt;/h3>&lt;/a>
 &lt;p>Assuming you are already familiar with
@@ -77,7 +77,7 @@ actual path to your Quartz folder.&lt;/p>
 &lt;li>Set up port forwarding on your router from port &lt;code>p&lt;/code> to &lt;code>your-local-ip:1313&lt;/code>.&lt;/li>
 &lt;li>You should now be able to access Quartz from outside your local network at &lt;code>http://your-public-ip:p&lt;/code>.&lt;/li>
 &lt;/ol>
-&lt;p>{{ trim \"However, your HTTP connection will be unencrypted and &lt;strong>this method is not secure&lt;/strong>.\" }}&lt;/p>
+&lt;p>However, your HTTP connection will be unencrypted and &lt;strong>this method is not secure&lt;/strong>.&lt;/p>
 &lt;a href="#to-a-domain-using-cloudflare-proxy">&lt;h3 id="to-a-domain-using-cloudflare-proxy">&lt;span class="hanchor" ariaLabel="Anchor"># &lt;/span>To a Domain using Cloudflare Proxy&lt;/h3>&lt;/a>
 &lt;ol>
 &lt;li>Port forward 443 (HTTPS) from your machine.&lt;/li>
