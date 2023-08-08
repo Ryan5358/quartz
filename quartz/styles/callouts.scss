@@ -79,7 +79,7 @@
   &[data-callout="quote"] {
     --color: var(--secondary);
     --border: var(--lightgray);
-
+  }
 
   &.is-collapsed > .callout-title > .fold {
     transform: rotateZ(-90deg);
