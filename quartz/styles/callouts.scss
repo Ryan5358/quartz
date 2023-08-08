@@ -63,16 +63,23 @@
     --bg: #db424209;
   }
 
-  &[data-callout="example"] {
+  &[data-callout="example"],
+  &[data-callout="media"] {
     --color: #7a43b5;
     --border: #7a43b522;
     --bg: #7a43b509;
   }
 
+  &[data-callout="resource"] {
+    --color: #d4b68a;
+    --border: #d4b68a22;
+    --bg: #d4b68a09;
+  }
+
   &[data-callout="quote"] {
     --color: var(--secondary);
     --border: var(--lightgray);
-  }
+
 
   &.is-collapsed > .callout-title > .fold {
     transform: rotateZ(-90deg);
