@@ -7,7 +7,7 @@ tags:
 
 >[!media]- Watch
 >
->![[swinburne/year-2023/semester-2/COS30049/resources/Sess1-1 History and Motivations.mp4]]
+>![[swinburne/year-2023/semester-2/COS30049/resources/Sess1-1 History and Motivations.mp4|Sess1-1 History and Motivations]]
 
 - Digital coins emerged before the creation Bitcoin but do not gain popularity. 
 - Bitcoin first introduced in 2008 with domain [bitcoin.org](https://bitcoin.org) registered and later that year made its ***white paper***[^1] published and created open source project on [SourceForge.Net](https://sourceforge.net).
