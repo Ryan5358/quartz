@@ -67,7 +67,7 @@ const callouts = {
   example: icons.listIcon,
   quote: icons.quoteIcon,
   media: icons.mediaIcon,
-  resource: icon.resourceIcon
+  resource: icons.resourceIcon
 }
 
 const calloutMapping: Record<string, keyof typeof callouts> = {
