@@ -4,7 +4,7 @@ tags:
 - SWE30009
 ---
 
-> [!info]- Resource
+> [!resource]- Resource
 > 
 > ![[swinburne/year-2023/semester-2/SWE30009/resources/STR-Tutorial-01a.pdf|STR-Tutorial-01a]]
 
