@@ -63,17 +63,10 @@
     --bg: #db424209;
   }
 
-  &[data-callout="example"],
-  &[data-callout="media"] {
+  &[data-callout="example"] {
     --color: #7a43b5;
     --border: #7a43b522;
     --bg: #7a43b509;
-  }
-
-  &[data-callout="resource"] {
-    --color: #d4b68a;
-    --border: #d4b68a22;
-    --bg: #d4b68a09;
   }
 
   &[data-callout="quote"] {
