@@ -22,3 +22,9 @@ Eu augue ut lectus arcu bibendum at varius vel pharetra. Sit amet est placerat i
 >>[!tip]- Collapsed child callout
 >>
 >>Amet commodo nulla facilisi nullam vehicula ipsum a arcu. Risus sed vulputate odio ut enim blandit. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Nibh sit amet commodo nulla facilisi.
+
+>[!example]-  Callout title
+>
+>1. Point 1
+>>**Note**: Important notes
+>2. Point 2
