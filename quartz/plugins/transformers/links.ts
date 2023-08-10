@@ -14,6 +14,8 @@ import path from "path"
 import { visit } from "unist-util-visit"
 import isAbsoluteUrl from "is-absolute-url"
 
+import chalk from "chalk"
+
 interface Options {
   /** How to resolve Markdown paths */
   markdownLinkResolution: "absolute" | "relative" | "shortest"
@@ -103,6 +105,8 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
                   const ext = path.extname(node.properties.src)
                   dest = node.properties.src = transformLink(dest)
                   node.properties.src = dest + ext
+                  node.properties.width = "100%"
+                  node.properties.height = "auto"
                 }
               }
             })

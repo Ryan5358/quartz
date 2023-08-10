@@ -9,6 +9,7 @@ import { QuartzLogger } from "../log"
 import { trace } from "../trace"
 import { BuildCtx } from "../ctx"
 
+
 export async function emitContent(ctx: BuildCtx, content: ProcessedContent[]) {
   const { argv, cfg } = ctx
   const perf = new PerfTimer()

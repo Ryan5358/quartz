@@ -31,7 +31,7 @@ import { slug } from "github-slugger"
 //  note/abc/index.html  ◄─────────────   note/abc/index                             │
 //                                                                                   │
 //                                             ▲                            ┌────────┴────────┐
-//                           slugifyFilePath() │            transformLink() │                 │
+//                           slugifyFilePath() │    transformInternalLink() │                 │
 //                                             │                            │                 │
 //                                   ┌─────────┴──────────┐           ┌─────┴─────┐  ┌────────┴──────┐
 //                                   │     File Path      │           │ Wikilinks │  │ Markdown Link │
@@ -221,7 +221,7 @@ function _hasFileExtension(s: string): boolean {
 }
 
 function _getFileExtension(s: string): string | undefined {
-  return s.match(/\.[A-Za-z]+$/)?.[0]
+  return s.match(/\.[A-Za-z0-9]+$/)?.[0]
 }
 
 function _isRelativeSegment(s: string): boolean {
