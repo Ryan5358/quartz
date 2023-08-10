@@ -84,6 +84,10 @@ const BuildArgv = {
     default: false,
     describe: "show detailed bundle information",
   },
+  concurrency: {
+    number: true,
+    describe: "how many threads to use to parse notes",
+  },
 }
 
 function escapePath(fp) {
@@ -125,7 +129,7 @@ async function popContentFolder(contentFolder) {
 }
 
 function gitPull(origin, branch) {
-  const flags = ["-s", "recursive", "-X", "ours", "--no-edit"]
+  const flags = ["--no-rebase", "--autostash", "-s", "recursive", "-X", "ours", "--no-edit"]
   spawnSync("git", ["pull", ...flags, origin, branch], { stdio: "inherit" })
 }
 

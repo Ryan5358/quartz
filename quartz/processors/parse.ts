@@ -9,7 +9,6 @@ import { PerfTimer } from "../perf"
 import { read } from "to-vfile"
 import { FilePath, QUARTZ, slugifyFilePath } from "../path"
 import path from "path"
-import os from "os"
 import workerpool, { Promise as WorkerPromise } from "workerpool"
 import { QuartzLogger } from "../log"
 import { trace } from "../trace"
@@ -56,6 +55,8 @@ async function transpileWorkerScript() {
     platform: "node",
     format: "esm",
     packages: "external",
+    sourcemap: true,
+    sourcesContent: false,
     plugins: [
       {
         name: "css-and-scripts-as-text",
@@ -80,6 +81,7 @@ export function createFileParser(ctx: BuildCtx, fps: FilePath[]) {
     const res: ProcessedContent[] = []
     for (const fp of fps) {
       try {
+        const perf = new PerfTimer()
         const file = await read(fp)
 
         // strip leading and trailing whitespace
@@ -99,7 +101,7 @@ export function createFileParser(ctx: BuildCtx, fps: FilePath[]) {
         res.push([newAst, file])
 
         if (argv.verbose) {
-          console.log(`[process] ${fp} -> ${file.data.slug}`)
+          console.log(`[process] ${fp} -> ${file.data.slug} (${perf.timeSince()})`)
         }
       } catch (err) {
         trace(`\nFailed to process \`${fp}\``, err as Error)
@@ -110,13 +112,16 @@ export function createFileParser(ctx: BuildCtx, fps: FilePath[]) {
   }
 }
 
+const clamp = (num: number, min: number, max: number) =>
+  Math.min(Math.max(Math.round(num), min), max)
 export async function parseMarkdown(ctx: BuildCtx, fps: FilePath[]): Promise<ProcessedContent[]> {
   const { argv } = ctx
   const perf = new PerfTimer()
   const log = new QuartzLogger(argv.verbose)
 
+  // rough heuristics: 128 gives enough time for v8 to JIT and optimize parsing code paths
   const CHUNK_SIZE = 128
-  let concurrency = fps.length < CHUNK_SIZE ? 1 : os.availableParallelism()
+  const concurrency = ctx.argv.concurrency ?? clamp(fps.length / CHUNK_SIZE, 1, 4)
 
   let res: ProcessedContent[] = []
   log.start(`Parsing input files using ${concurrency} threads`)
@@ -142,7 +147,11 @@ export async function parseMarkdown(ctx: BuildCtx, fps: FilePath[]): Promise<Pro
       childPromises.push(pool.exec("parseFiles", [argv, chunk, ctx.allSlugs]))
     }
 
-    const results: ProcessedContent[][] = await WorkerPromise.all(childPromises)
+    const results: ProcessedContent[][] = await WorkerPromise.all(childPromises).catch((err) => {
+      const errString = err.toString().slice("Error:".length)
+      console.error(errString)
+      process.exit(1)
+    })
     res = results.flat()
     await pool.terminate()
   }
