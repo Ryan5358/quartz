@@ -39,6 +39,7 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
             const curSlug = canonicalizeServer(file.data.slug!)
             const transformLink = (target: string): RelativeURL => {
               const targetSlug = _stripSlashes(transformInternalLink(target).slice(".".length))
+              console.log(chalk.bgCyan(targetSlug))
               let [targetCanonical, targetAnchor] = splitAnchor(targetSlug)
               if (opts.markdownLinkResolution === "relative") {
                 return targetSlug as RelativeURL

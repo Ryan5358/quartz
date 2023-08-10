@@ -10,7 +10,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     baseUrl: "ryan5358.github.io/quartz",
-    ignorePatterns: ["private", "templates"],
+    ignorePatterns: ["private", "templates", "swinburne"],
     theme: {
       typography: {
         header: "Schibsted Grotesk",
