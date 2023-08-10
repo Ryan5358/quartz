@@ -1,4 +1,5 @@
 ---
+title: "Note 1"
 tags:
 - notes
 ---
