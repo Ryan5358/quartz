@@ -5,7 +5,7 @@ tags:
 
 Quartz uses [Katex](https://katex.org/) by default to typeset both inline and block math expressions at build time.
 
-## Formatting
+## Syntax
 
 ### Block Math
 
@@ -23,6 +23,19 @@ $$
 f(x) = \int_{-\infty}^\infty
     f\hat(\xi),e^{2 \pi i \xi x}
     \,d\xi
+$$
+
+$$
+\begin{aligned}
+a &= b + c \\ &= e + f \\
+\end{aligned}
+$$
+
+$$
+\begin{bmatrix}
+1 & 2 & 3 \\
+a & b & c
+\end{bmatrix}
 $$
 
 ### Inline Math
