@@ -2,13 +2,12 @@ import { QuartzTransformerPlugin } from "../types"
 import {
   CanonicalSlug,
   RelativeURL,
+  TransformOptions,
   _stripSlashes,
   canonicalizeServer,
   joinSegments,
-  pathToRoot,
-  resolveRelative,
   splitAnchor,
-  transformInternalLink,
+  transformLink,
 } from "../../path"
 import path from "path"
 import { visit } from "unist-util-visit"
@@ -18,7 +17,7 @@ import chalk from "chalk"
 
 interface Options {
   /** How to resolve Markdown paths */
-  markdownLinkResolution: "absolute" | "relative" | "shortest"
+  markdownLinkResolution: TransformOptions["strategy"]
   /** Strips folders from a link so that it looks nice */
   prettyLinks: boolean
 }
@@ -61,11 +60,11 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
                 // (fall-through case)
               }
 
-              // treat as absolute
-              return joinSegments(pathToRoot(curSlug), targetSlug) as RelativeURL
+            const transformOptions: TransformOptions = {
+              strategy: opts.markdownLinkResolution,
+              allSlugs: ctx.allSlugs,
             }
 
-            const outgoing: Set<CanonicalSlug> = new Set()
             visit(tree, "element", (node, _index, _parent) => {
               // rewrite all links
               if (
@@ -79,7 +78,7 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
 
                 // don't process external links or intra-document anchors
                 if (!(isAbsoluteUrl(dest) || dest.startsWith("#"))) {
-                  dest = node.properties.href = transformLink(dest)
+                  dest = node.properties.href = transformLink(curSlug, dest, transformOptions)
                   const canonicalDest = path.posix.normalize(joinSegments(curSlug, dest))
                   const [destCanonical, _destAnchor] = splitAnchor(canonicalDest)
                   outgoing.add(destCanonical as CanonicalSlug)
@@ -105,7 +104,7 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
                 if (!isAbsoluteUrl(node.properties.src)) {
                   let dest = node.properties.src as RelativeURL
                   const ext = path.extname(node.properties.src)
-                  dest = node.properties.src = transformLink(dest)
+                  dest = node.properties.src = transformLink(curSlug, dest, transformOptions)
                   node.properties.src = dest + ext
                   node.properties.width = "100%"
                   node.properties.height = "auto"
